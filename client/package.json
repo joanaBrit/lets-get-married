@@ -1,0 +1,22 @@
+{
+  "name": "lets-get-married",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/react-dom": "^19.0.3",
+    "storybook": "^8.5.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
