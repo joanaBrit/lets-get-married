@@ -1,0 +1,7 @@
+.content-block {
+  display: flex;
+
+  &.illustration-right {
+    flex-direction: row-reverse;
+  }
+}
