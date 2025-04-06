@@ -1,0 +1,18 @@
+div.splash-container {
+  margin: 10vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.splash-content {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+  text-wrap: wrap;
+
+  button {
+    width: max-content;
+    margin: auto;
+  }
+}
