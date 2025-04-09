@@ -1,0 +1,11 @@
+div.lang-selector {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+
+  .lang-option {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}

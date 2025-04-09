@@ -1,0 +1,15 @@
+div.section-title {
+  text-align: center;
+
+  h1 {
+    color: var(--theme-primary);
+  }
+  h1:after {
+    content: "";
+    height: 3px;
+    background: var(--theme-primary-light);
+    width: 80%;
+    margin: 0 10% 2rem;
+    display: block;
+  }
+}

@@ -9,19 +9,23 @@ import {
 } from "@mui/icons-material";
 
 import "./Venue.scss";
+import { SectionTitle } from "../components/SectionTitle";
 
 export function Venue() {
   const { t } = useTranslation();
   return (
     <div className="content-block venue-container">
-      <h1>{t("venue.title")}</h1>
+      <SectionTitle>{t("venue.title")}</SectionTitle>
       <Card>
         <div className="image-container">
           <img src="/assets/tenuca-tresca.jpg" />
         </div>
 
         <div className="content">
-          <IconButton>
+          <IconButton
+            size="large"
+            onClick={() => window.open(t("venue.mapUrl"))}
+          >
             <OpenIcon />
           </IconButton>
           <h2>{t("venue.name")}</h2>
@@ -46,7 +50,9 @@ export function Venue() {
         <Trans>{t("venue.description")}</Trans>
       </p>
 
-      <StyledButton variant="contained">{t("venue.readMore")}</StyledButton>
+      <StyledButton variant="contained" size="large">
+        {t("venue.readMore")}
+      </StyledButton>
     </div>
   );
 }

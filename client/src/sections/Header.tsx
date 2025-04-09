@@ -5,6 +5,7 @@ import "./Header.scss";
 import { Drawer, IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import { useState } from "react";
+import { LanguageSelector } from "../components/LanguageSelector";
 
 export function Header() {
   const navLinks: Array<NavLinkData> = JSON.parse(getConfig("NavLinks"));
@@ -38,10 +39,7 @@ export function Header() {
         <nav className="drawer">
           <div>
             {getConfig("CoupleName")}
-            <select>
-              <option>English</option>
-              <option>Português</option>
-            </select>
+            <LanguageSelector />
           </div>
 
           <div style={{ display: "grid" }}>
