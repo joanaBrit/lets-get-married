@@ -1,0 +1,50 @@
+:root {
+  --theme-primary: #4d6d64;
+  --theme-primary-dark: #045d43;
+  --theme-primary-light: #379e80;
+  --theme-secondary: #bed62e;
+  --theme-primary-text: #fff;
+  --theme-secondary-text: #000;
+  font-size: 16px;
+  font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, Helvetica,
+    sans-serif;
+}
+
+button.styled-button {
+  border-radius: 3rem;
+  text-transform: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Birthstone", Georgia, "Times New Roman", Times, serif;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+div.content-block {
+  padding: 3rem 2rem;
+}
+
+[data-visibility="desktop"] {
+  display: none;
+}
+
+@media (min-width: 760px) {
+  [data-visibility="desktop"] {
+    display: unset;
+  }
+  [data-visibility="mobile"] {
+    display: none;
+  }
+}

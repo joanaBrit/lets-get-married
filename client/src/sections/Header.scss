@@ -1,33 +1,32 @@
 nav {
+  padding: 0.5rem 1rem;
+  align-items: center;
   gap: 1rem;
+
+  svg {
+    fill: var(--theme-primary-text) !important;
+  }
 
   &:not(.drawer) {
     display: flex;
+    background: var(--theme-primary);
+    color: var(--theme-primary-text);
   }
 
   &.drawer {
     display: grid;
+    padding: 2rem 1rem;
+    grid-template-rows: max-content max-content 1fr;
+    height: 100%;
   }
 
   a {
+    // color: var(--theme-primary-text);
     text-decoration: none;
     margin: 0.5rem;
   }
 
   .spacer {
     flex-grow: 1;
-  }
-
-  [data-visibility="desktop"] {
-    display: none;
-  }
-
-  @media (min-width: 760px) {
-    [data-visibility="desktop"] {
-      display: unset;
-    }
-    [data-visibility="mobile"] {
-      display: none;
-    }
   }
 }

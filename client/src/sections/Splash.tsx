@@ -16,9 +16,12 @@ export function Splash() {
             month: "long",
             day: "numeric",
           })}
-          {" • "}
-          {getConfig("EventLocation")}
+          <span data-visibility="desktop">
+            {" • "}
+            {getConfig("EventLocation")}
+          </span>
         </h2>
+        <h2 data-visibility="mobile">{getConfig("EventLocation")}</h2>
         <StyledButton onClick={() => rsvp.open()}>RSVP</StyledButton>
       </div>
     </div>

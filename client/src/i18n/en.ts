@@ -15,8 +15,13 @@ export const en = {
   venue: {
     title: "Venue",
     description:
-      "The ceremony and reception will all take place at the Tenuta Tresca venue, located south of Brindisi. A free shuttle service will be provided to transfer you from your place of accommodation to the venue. You may also opt to drive to the venue yourself - parking spaces are available.",
-    readMore: "Read more",
+      "The ceremony and reception will take place at Tenuta Tresca, amongst olive groves and surrounded by Italian countryside. <br><br>It is 1h drive south from Brindisi. A free shuttle service will be provided to transfer you from your place of accommodation to the venue.",
+    readMore: "Getting there",
+    shuttle: "Free shuttle will be arranged",
+    parking: "Parking available at venue",
+    name: "Tenuta Tresca",
+    address:
+      "S.P. 308, Provinciale Botrugno - Supersano, Km 1/6, 73020 Botrugno LE, Italy",
   },
   rsvp: {
     firstName: "First Name",

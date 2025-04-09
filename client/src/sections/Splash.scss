@@ -1,8 +1,11 @@
 div.splash-container {
-  margin: 10vh auto;
+  padding: 10vh 0;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("/assets/splash.jpg");
+  background-size: cover;
 }
 
 div.splash-content {
@@ -10,7 +13,16 @@ div.splash-content {
   gap: 1rem;
   text-align: center;
   text-wrap: wrap;
-
+  color: #fff;
+  h1,
+  h2 {
+    font-family: "Playfair Display" !important;
+    font-weight: 100;
+  }
+  h2 {
+    font-family: "Poppins";
+    font-size: 1.5rem;
+  }
   button {
     width: max-content;
     margin: auto;

@@ -1,6 +1,6 @@
 export function Agenda() {
   return (
-    <div>
+    <div className="content-block">
       <h2>Agenda</h2>
       <p>More information to come!</p>
     </div>
