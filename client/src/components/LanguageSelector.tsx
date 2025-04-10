@@ -1,4 +1,4 @@
-import { IconButton, Popover } from "@mui/material";
+import { Button, IconButton, Popover } from "@mui/material";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -43,12 +43,17 @@ export function LanguageSelector() {
     setAnchor(null);
   };
   return (
-    <IconButton
-      onClick={(e) => {
-        setAnchor(e.currentTarget);
-      }}
-    >
-      <img height={24} width={24} src={languageIconMap[i18n.language]}></img>
+    <>
+      <Button
+        className="lang-selector"
+        variant="outlined"
+        onClick={(e) => {
+          setAnchor(e.currentTarget);
+        }}
+        startIcon={<FlagIcon lang={i18n.language} />}
+      >
+        {i18n.language.toUpperCase()}
+      </Button>
       <Popover
         open={!!anchor}
         anchorEl={anchor}
@@ -64,6 +69,6 @@ export function LanguageSelector() {
           <LanguageOption i18n={i18n} lang="pt" onSelect={closePopover} />
         </div>
       </Popover>
-    </IconButton>
+    </>
   );
 }

@@ -33,19 +33,27 @@ h3 {
 h4 {
   font-size: 1.5rem;
 }
+
 div.content-block {
   padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fafafa;
 }
 
 [data-visibility="desktop"] {
   display: none;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 1024px) {
   [data-visibility="desktop"] {
     display: unset;
   }
   [data-visibility="mobile"] {
     display: none;
+  }
+
+  div.content-block {
+    padding: 3rem 8rem;
   }
 }

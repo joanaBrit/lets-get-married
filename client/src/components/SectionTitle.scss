@@ -3,6 +3,8 @@ div.section-title {
 
   h1 {
     color: var(--theme-primary);
+    width: max-content;
+    margin: auto;
   }
   h1:after {
     content: "";

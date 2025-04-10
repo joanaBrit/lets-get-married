@@ -18,10 +18,8 @@ export function getConfig(key: ConfigKey): string | Date {
 
     case "NavLinks":
       return JSON.stringify([
-        { labelKey: 1, href: "#our-story" },
         { labelKey: 2, href: "#location" },
-        { labelKey: 3, href: "#travel-stay" },
-        { labelKey: 4, href: "#faq" },
+        { labelKey: 3, href: "#travel" },
       ]);
   }
 }

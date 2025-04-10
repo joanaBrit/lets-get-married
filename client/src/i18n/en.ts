@@ -32,6 +32,8 @@ export const en = {
     plus: "Additional Guests",
     yes: "😍 Count me in!",
     no: "😢 Regretfully decline",
+    success: "Thanks for your reply",
+    failed: "Something went wrong. Contact us directly.",
   },
   agenda: {
     title: "Schedule",

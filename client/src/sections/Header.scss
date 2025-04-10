@@ -11,6 +11,13 @@ nav {
     display: flex;
     background: var(--theme-primary);
     color: var(--theme-primary-text);
+
+    button.lang-selector {
+      background: #ffffffcc;
+    }
+    a {
+      color: var(--theme-primary-text);
+    }
   }
 
   &.drawer {
@@ -18,10 +25,16 @@ nav {
     padding: 2rem 1rem;
     grid-template-rows: max-content max-content 1fr;
     height: 100%;
+
+    & > div:first-of-type {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
   }
 
   a {
-    // color: var(--theme-primary-text);
+    color: var(--theme-primary);
     text-decoration: none;
     margin: 0.5rem;
   }

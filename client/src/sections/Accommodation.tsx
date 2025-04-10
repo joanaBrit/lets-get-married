@@ -1,7 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { SectionTitle } from "../components/SectionTitle";
-import { t } from "../i18n";
 
 export function Accommodation() {
+  const { t } = useTranslation();
   return (
     <div className="content-block">
       <SectionTitle>{t("accommodation.title")}</SectionTitle>
