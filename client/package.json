@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.tsx",
   "scripts": {
+    "build": "vite build",
     "start": "vite",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
