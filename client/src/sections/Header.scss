@@ -1,7 +1,8 @@
 nav {
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   align-items: center;
   gap: 1rem;
+  width: calc(100% - 4rem);
 
   svg {
     fill: var(--theme-primary-text) !important;
@@ -34,7 +35,7 @@ nav {
   }
 
   a {
-    color: var(--theme-primary);
+    color: var(--theme-primary-text);
     text-decoration: none;
     margin: 0.5rem;
   }

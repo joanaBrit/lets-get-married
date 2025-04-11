@@ -16,46 +16,47 @@ export function Venue() {
   return (
     <div className="content-block venue-container" id="location">
       <SectionTitle>{t("venue.title")}</SectionTitle>
-      <div>
-        <div>
-          <Card style={{ maxWidth: 600, margin: "auto" }}>
-            <div className="image-container">
-              <img src="/assets/tenuca-tresca.jpg" />
-            </div>
+      <div className="venue-content">
+        <Card>
+          <div className="image-container">
+            <img src="/assets/tenuca-tresca.jpg" />
+          </div>
 
-            <div className="content">
-              <IconButton
-                size="large"
-                onClick={() => window.open(t("venue.mapUrl"))}
-              >
-                <OpenIcon />
-              </IconButton>
-              <h2>{t("venue.name")}</h2>
-              <div className="address">
-                <PlaceIcon />
-                <span>{t("venue.address")}</span>
-              </div>
-              <ul>
-                <li>
-                  <BusIcon />
-                  <Typography>{t("venue.shuttle")}</Typography>
-                </li>
-                <li>
-                  <ParkingIcon />
-                  <Typography>{t("venue.parking")}</Typography>
-                </li>
-              </ul>
+          <div className="card-content">
+            <IconButton
+              size="large"
+              onClick={() => window.open(t("venue.mapUrl"))}
+            >
+              <OpenIcon />
+            </IconButton>
+            <h2>{t("venue.name")}</h2>
+            <div className="address">
+              <PlaceIcon />
+              <span>{t("venue.address")}</span>
             </div>
-          </Card>
-        </div>
+            <ul>
+              <li>
+                <BusIcon />
+                <Typography>{t("venue.shuttle")}</Typography>
+              </li>
+              <li>
+                <ParkingIcon />
+                <Typography>{t("venue.parking")}</Typography>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
         <div>
           <p className="description">
             <Trans>{t("venue.description")}</Trans>
           </p>
 
-          <StyledButton variant="contained" size="large">
-            {t("venue.readMore")}
-          </StyledButton>
+          {false && (
+            <StyledButton variant="contained" size="large">
+              {t("venue.readMore")}
+            </StyledButton>
+          )}
         </div>
       </div>
     </div>

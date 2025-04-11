@@ -42,15 +42,15 @@ div.content-block {
 }
 
 [data-visibility="desktop"] {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 1024px) {
   [data-visibility="desktop"] {
-    display: unset;
+    display: unset !important;
   }
   [data-visibility="mobile"] {
-    display: none;
+    display: none !important;
   }
 
   div.content-block {
