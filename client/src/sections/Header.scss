@@ -2,7 +2,6 @@ nav {
   padding: 1rem 2rem;
   align-items: center;
   gap: 1rem;
-  width: calc(100% - 4rem);
 
   svg {
     fill: var(--theme-primary-text) !important;
@@ -10,6 +9,7 @@ nav {
 
   &:not(.drawer) {
     display: flex;
+    width: calc(100% - 4rem);
     background: var(--theme-primary);
     color: var(--theme-primary-text);
 
@@ -27,6 +27,10 @@ nav {
     grid-template-rows: max-content max-content 1fr;
     height: 100%;
 
+    a {
+      color: var(--theme-primary);
+    }
+
     & > div:first-of-type {
       display: flex;
       gap: 1rem;
@@ -35,7 +39,6 @@ nav {
   }
 
   a {
-    color: var(--theme-primary-text);
     text-decoration: none;
     margin: 0.5rem;
   }
