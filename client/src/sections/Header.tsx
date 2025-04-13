@@ -36,7 +36,7 @@ export function Header() {
           </a>
         ))}
       </div>
-      <span data-visibility="desktop">
+      <span>
         <LanguageSelector />
       </span>
       <IconButton
