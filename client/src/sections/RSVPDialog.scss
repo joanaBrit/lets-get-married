@@ -1,13 +1,11 @@
+.MuiDialog-paper {
+  padding: 1rem 1.5rem;
+}
+
 form {
   display: grid;
   gap: 0.5rem;
-  margin: 1rem 1.5rem;
+
   min-width: 250px;
   max-width: 500px;
-
-  div {
-    margin: 1rem 0;
-    display: grid;
-    gap: 1rem;
-  }
 }

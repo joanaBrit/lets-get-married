@@ -1,10 +1,12 @@
-import { Alert, Dialog, TextField } from "@mui/material";
+import { Alert, Dialog, Tabs, Tab } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { StyledButton } from "../components/StyledButton";
 
-import { FormEventHandler, useEffect, useRef, useState } from "react";
-import "./RSVPDialog.scss";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { Verified } from "@mui/icons-material";
+import { GuestDetails } from "./GuestDetails";
+
+import "./RSVPDialog.scss";
 
 export function RSVPDialog({
   open,
@@ -17,15 +19,17 @@ export function RSVPDialog({
   const [submitStatus, setSubmitStatus] = useState<{ ok: boolean } | null>(
     null
   );
+  const [showGuestIndex, setShowGuestIndex] = useState(0);
+  const [additional, setAdditional] = useState(0);
   const { t } = useTranslation();
 
-  const handleSubmit: FormEventHandler = (e) => {
+  const handleSubmit = (e: MouseEvent, isAccept: boolean) => {
     e.preventDefault();
 
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
-    const formObject: Record<string, any> = {};
+    const formObject: Record<string, any> = { isAccept };
 
     formData.forEach((value, key) => {
       formObject[key] = value;
@@ -62,45 +66,46 @@ export function RSVPDialog({
           {submitStatus && !submitStatus.ok && (
             <Alert severity="error">{t("rsvp.failed")}</Alert>
           )}
-          <form onSubmit={handleSubmit} ref={formRef}>
-            <TextField
-              required
-              label={t("rsvp.firstName")}
-              name="firstName"
-              variant="standard"
-            />
-            <TextField
-              required
-              label={t("rsvp.lastName")}
-              name="lastName"
-              variant="standard"
-            />
-            <TextField
-              required
-              label={t("rsvp.email")}
-              name="email"
-              variant="standard"
-            />
-            <TextField
-              label={t("rsvp.phone")}
-              name="phone"
-              variant="standard"
-            />
-            <TextField
-              label={t("rsvp.plus")}
-              type="number"
-              defaultValue={0}
-              name="plus"
-              variant="standard"
-            />
-            <div>
-              <StyledButton type="submit" onClick={handleSubmit}>
-                {t("rsvp.yes")}
-              </StyledButton>
-              <StyledButton type="submit" onClick={handleSubmit}>
-                {t("rsvp.no")}
-              </StyledButton>
-            </div>
+
+          {additional > 0 && (
+            <Tabs
+              onChange={(_e, v) => setShowGuestIndex(v)}
+              value={showGuestIndex}
+              variant="scrollable"
+              scrollButtons="auto"
+            >
+              {Array.from({ length: additional + 1 }, (_v, i) => (
+                <Tab
+                  key={i}
+                  label={[t("rsvp.guest"), i + 1].join(" ")}
+                  onClick={() => setShowGuestIndex(i)}
+                />
+              ))}
+            </Tabs>
+          )}
+          <form ref={formRef}>
+            <GuestDetails isMainGuest hidden={showGuestIndex !== 0} />
+            {...Array.from({ length: additional }, (_v, i) => (
+              <GuestDetails
+                key={i}
+                index={i + 1}
+                hidden={showGuestIndex !== i + 1}
+              />
+            ))}
+            <StyledButton
+              variant="outlined"
+              onClick={() => setAdditional(additional + 1)}
+              style={{ marginBottom: "1rem" }}
+            >
+              {t("rsvp.plus")}
+            </StyledButton>
+
+            <StyledButton type="submit" onClick={(e) => handleSubmit(e, true)}>
+              {t("rsvp.yes")}
+            </StyledButton>
+            <StyledButton type="submit" onClick={(e) => handleSubmit(e, false)}>
+              {t("rsvp.no")}
+            </StyledButton>
           </form>
         </>
       )}
