@@ -23,7 +23,7 @@ interface Guest {
   requests?: string;
 }
 
-interface ProcessedData {
+export interface ProcessedData {
   guests: Guest[];
   stats: {
     totalGuests: number;
@@ -73,12 +73,13 @@ export function processRsvpData(data: RsvpData[]): ProcessedData {
     }
   });
 
-  // Calculate stats
+  // Calculate stats for accepted guests only
+  const acceptedGuests = guests.filter(g => g.isAccepted);
   const stats = {
-    totalGuests: guests.length,
-    vegetarianCount: guests.filter(g => g.vegetarian).length,
-    veganCount: guests.filter(g => g.vegan).length,
-    allergiesCount: guests.filter(g => g.foodAllergies).length
+    totalGuests: acceptedGuests.length,
+    vegetarianCount: acceptedGuests.filter(g => g.vegetarian).length,
+    veganCount: acceptedGuests.filter(g => g.vegan).length,
+    allergiesCount: acceptedGuests.filter(g => g.foodAllergies).length
   };
 
   return { guests, stats };

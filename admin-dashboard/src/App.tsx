@@ -1,40 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import { LuUsers as Users, LuUtensils as  Utensils, LuLeaf as Leaf, LuTriangleAlert as  AlertTriangle } from 'react-icons/lu';
+import { LuUsers, LuUtensils, LuLeaf, LuTriangleAlert } from 'react-icons/lu';
 import { type RsvpData, processRsvpData } from './utils';
-import { GuestTable } from './GuestTable';
-import { StatCard } from './StatCard';
-
-function ErrorDisplay() {
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md text-center">
-        <h1 className="text-2xl font-bold text-red-600 mb-4">Error</h1>
-        <p className="text-gray-600">Error fetching from backend</p>
-      </div>
-    </div>
-  );
-}
+import { StatCard } from './components/StatCard';
+import { GuestTable } from './components/GuestTable';
+import { ErrorDisplay } from './components/ErrorDisplay';
+import { LoginOverlay } from './components/LoginOverlay';
 
 function App() {
   const [data, setData] = useState<RsvpData[] | null>(null);
   const [error, setError] = useState<boolean>(false);
+  const [showLogin, setShowLogin] = useState(!localStorage.getItem('auth'));
+
+  const fetchData = async () => {
+    try {
+      const auth = localStorage.getItem('auth');
+      if (!auth) {
+        setShowLogin(true);
+        return;
+      }
+
+      const response = await fetch(import.meta.env.VITE_DATA_ENDPOINT, {
+        headers: {
+          Authorization: auth
+        }
+      });
+      
+      if (response.status === 401) {
+        localStorage.removeItem('auth');
+        setShowLogin(true);
+        return;
+      }
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (err) {
+      setError(true);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(import.meta.env.VITE_DATA_ENDPOINT, {headers: {Authorization: import.meta.env.VITE_TOKEN}});
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (err) {
-        setError(true);
-      }
-    };
-
     fetchData();
   }, []);
+
+  const handleLogin = () => {
+    setShowLogin(false);
+    fetchData();
+  };
+
+  if (showLogin) {
+    return <LoginOverlay onLogin={handleLogin} />;
+  }
 
   if (error) {
     return <ErrorDisplay />;
@@ -59,22 +78,22 @@ function App() {
           <StatCard 
             title="Total Guests" 
             value={stats.totalGuests} 
-            icon={Users}
+            icon={LuUsers} 
           />
           <StatCard 
             title="Vegetarian Guests" 
             value={stats.vegetarianCount} 
-             icon={Utensils}
+            icon={LuUtensils} 
           />
           <StatCard 
             title="Vegan Guests" 
             value={stats.veganCount} 
-            icon={Leaf}
+            icon={LuLeaf} 
           />
           <StatCard 
             title="Food Allergies" 
             value={stats.allergiesCount} 
-            icon={AlertTriangle}
+            icon={LuTriangleAlert} 
           />
         </div>
 
