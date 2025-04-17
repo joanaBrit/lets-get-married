@@ -36,19 +36,21 @@ export const pt = {
     failed: "Algo correu mal. Contacte-nos diretamente.",
     guest: "Convidado",
     vegetarian: "Vegetariano",
-    vegan: "Vegano",
+    vegan: "Vegan",
     foodAllergies: "Alergias Alimentares",
     requests: "(Opcional) Mais alguma coisa?",
   },
   agenda: {
     title: "Programa",
+    content:
+      "Cerimónia por volta do meio-dia.<br> Mais informações brevemente.",
   },
   travel: {
     title: "Viagem",
     gettingIn: {
       title: "Chegar",
       content:
-        "Há três opções a considerar – Brindisi, Bari e Lecce.<br><br>O aeroporto mais próximo do local do evento é o <strong>Aeroporto de Brindisi</strong>. Existem voos diretos a partir de Londres operados pela Ryanair. É a opção mais conveniente, embora com menos opções de alojamento e turismo na cidade.<br><br>Em alternativa, poderá voar para <strong>Bari</strong>, a capital da região da Apúlia. É uma cidade maior e está ligada a Brindisi por comboio. Os serviços funcionam quase de hora a hora, inclusive aos fins de semana. A viagem de uma hora pela Trenitalia custa €10.<br><br>Por fim, poderá considerar também <strong>Lecce</strong>, uma cidade maior a sul de Brindisi. Não há voos diretos para a cidade, mas existem ligações ferroviárias regulares entre Brindisi e Lecce, com uma duração de cerca de 30 minutos e um custo de €3,40.",
+        "Há três opções a considerar – Brindisi, Bari e Lecce.<br><br>O aeroporto mais próximo do local do evento é o <strong>Aeroporto de Brindisi</strong>. Não existem voos diretos de Portugal para o aeroporto de Brindisi — aos sábados, há um voo direto a partir de Madrid. Existem voos frequentes e low cost a partir de Roma e Milão. É a opção mais conveniente, embora com menos opções de alojamento e turismo na cidade.<br><br>Em alternativa, poderá voar para <strong>Bari</strong>, a capital da região da Apúlia. Há um voo direto do Porto para Bari, mas apenas aos domingos e às quintas-feiras, operado pela Ryanair. É uma cidade maior e está ligada a Brindisi por comboio. Os serviços funcionam quase de hora a hora, inclusive aos fins de semana. A viagem de uma hora pela Trenitalia custa €10.<br><br>Por fim, poderá considerar também <strong>Lecce</strong>, uma cidade maior a sul de Brindisi. Não há voos diretos para a cidade, mas existem ligações ferroviárias regulares entre Brindisi e Lecce, com uma duração de cerca de 30 minutos e um custo de €3,40.",
     },
     gettingAround: {
       title: "Deslocações",

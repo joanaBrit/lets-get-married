@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { SectionTitle } from "../components/SectionTitle";
 
 export function Agenda() {
@@ -7,8 +7,7 @@ export function Agenda() {
     <div className="content-block">
       <SectionTitle>{t("agenda.title")}</SectionTitle>
       <p style={{ textAlign: "center" }}>
-        Ceremony from around noon. <br></br>
-        {t("generic.placeholder")}
+        <Trans>{t("agenda.content")}</Trans>
       </p>
     </div>
   );

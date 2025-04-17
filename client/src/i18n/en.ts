@@ -42,6 +42,7 @@ export const en = {
   },
   agenda: {
     title: "Schedule",
+    content: "Ceremony from around noon.<br> More information to come.",
   },
   travel: {
     title: "Travel",
