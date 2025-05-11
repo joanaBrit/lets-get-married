@@ -1,15 +1,14 @@
 import { Trans, useTranslation } from "react-i18next";
 import { StyledButton } from "../components/StyledButton";
-import { Card, IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
-  OpenInNewOutlined as OpenIcon,
   LocalParkingOutlined as ParkingIcon,
   AirportShuttleOutlined as BusIcon,
-  PlaceOutlined as PlaceIcon,
 } from "@mui/icons-material";
 
 import "./Venue.scss";
 import { SectionTitle } from "../components/SectionTitle";
+import { PropertyCard } from "../components/PropertyCard";
 
 export function Venue() {
   const { t } = useTranslation();
@@ -17,35 +16,23 @@ export function Venue() {
     <div className="content-block venue-container" id="location">
       <SectionTitle>{t("venue.title")}</SectionTitle>
       <div className="venue-content">
-        <Card>
-          <div className="image-container">
-            <img src="/assets/tenuca-tresca.jpg" />
-          </div>
-
-          <div className="card-content">
-            <IconButton
-              size="large"
-              onClick={() => window.open(t("venue.mapUrl"))}
-            >
-              <OpenIcon />
-            </IconButton>
-            <h2>{t("venue.name")}</h2>
-            <div className="address">
-              <PlaceIcon />
-              <span>{t("venue.address")}</span>
-            </div>
-            <ul>
-              <li>
-                <BusIcon />
-                <Typography>{t("venue.shuttle")}</Typography>
-              </li>
-              <li>
-                <ParkingIcon />
-                <Typography>{t("venue.parking")}</Typography>
-              </li>
-            </ul>
-          </div>
-        </Card>
+        <PropertyCard
+          imgSrc="/assets/tenuca-tresca.jpg"
+          link={t("venue.mapUrl")}
+          title={t("venue.name")}
+          address={t("venue.address")}
+        >
+          <ul>
+            <li>
+              <BusIcon />
+              <Typography>{t("venue.shuttle")}</Typography>
+            </li>
+            <li>
+              <ParkingIcon />
+              <Typography>{t("venue.parking")}</Typography>
+            </li>
+          </ul>
+        </PropertyCard>
 
         <div>
           <p className="description">
