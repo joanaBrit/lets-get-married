@@ -34,6 +34,7 @@ export function RSVPDialog({
     formData.forEach((value, key) => {
       formObject[key] = value;
     });
+    localStorage.setItem("user_email", formObject.email);
 
     //@ts-ignore
     fetch(import.meta.env.VITE_RSVP_ENDPOINT, {

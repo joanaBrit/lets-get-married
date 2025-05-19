@@ -64,6 +64,39 @@ export const pt = {
   },
   accommodation: {
     title: "Alojamento",
+    content:
+      "Selecionámos algumas propriedades grandes no Airbnb que consideramos ter muito carácter e um bom preço. Fizemos as reservas em nome dos nossos convidados para garantir a disponibilidade! <br><br> Se estiver interessado em ficar com um dos quartos, por favor avise-nos o mais rapidamente possível, e daremos uma confirmação final com os restantes hóspedes e o custo.<br><br> Existem muitos mais B&Bs e hotéis disponíveis em Brindisi e Lecce, mas todos de pequena escala. Sinta-se à vontade para tratar do seu próprio alojamento.",
+    penthouse: {
+      content:
+        "Situado perto da estação ferroviária de Brindisi, é uma localização conveniente e permite viajar facilmente pela região.",
+      features: "3 quartos duplos; Piscina, Sem cozinha",
+      dateFrom: "2025-09-19",
+      dateTo: "2025-09-23",
+      pricing: "~£62 por quarto, por noite",
+    },
+    bonis: {
+      content:
+        "Uma residência histórica antiga, a uma distância acessível do centro de Lecce, com um grande jardim e piscina exterior.",
+      features:
+        "2 quartos duplos, 1 quarto duplo + individual; Piscina, Jardim, Cozinha",
+      dateFrom: "2025-09-19",
+      dateTo: "2025-09-23",
+      pricing: "~£59 por quarto, por noite",
+    },
+    barone: {
+      content:
+        "Localizado no centro histórico de Lecce, está a poucos passos das principais atrações e praças encantadoras da cidade.",
+      features:
+        "2 quartos duplos, 1 quarto com 2 camas individuais, 1 sofá-cama duplo; Cozinha",
+      dateFrom: "2025-09-20",
+      dateTo: "2025-09-23",
+      pricing: "~£80 por quarto, por noite",
+    },
+  },
+  stay: {
+    checkIn: "Check-in",
+    checkOut: "Check-out",
+    cost: "Preço (por quarto)",
   },
   generic: {
     placeholder: "Mais informações brevemente",

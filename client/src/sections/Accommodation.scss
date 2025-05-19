@@ -1,0 +1,14 @@
+div.property-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+  align-items: center;
+
+  span.date {
+    background: #d9a20020;
+    padding: 3px 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 0.5rem;
+  }
+}
