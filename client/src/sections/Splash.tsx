@@ -3,9 +3,13 @@ import { getConfig } from "../utils";
 import "./Splash.scss";
 import { StyledButton } from "../components/StyledButton";
 import { RSVPDialogContext } from "../contexts";
+import { useTranslation } from "react-i18next";
 
 export function Splash() {
   const rsvp = useContext(RSVPDialogContext);
+  const rsvpClosed = true;
+  const { t } = useTranslation("");
+
   return (
     <div className="splash-container">
       <div className="splash-content">
@@ -22,7 +26,13 @@ export function Splash() {
           </span>
         </h2>
         <h2 data-visibility="mobile">{getConfig("EventLocation")}</h2>
-        <StyledButton onClick={() => rsvp.open()}>RSVP</StyledButton>
+        <StyledButton
+          disabled={rsvpClosed}
+          onClick={() => rsvp.open()}
+          style={{ background: rsvpClosed ? "#899688" : undefined }}
+        >
+          {rsvpClosed ? t("rsvp.button.closed") : t("rsvp.button.default")}
+        </StyledButton>
       </div>
     </div>
   );

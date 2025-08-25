@@ -25,6 +25,10 @@ export const en = {
     mapUrl: "https://maps.app.goo.gl/7q3gZoptfZ3LRnrG7",
   },
   rsvp: {
+    button: {
+      default: "RSVP",
+      closed: "Contact us directly to RSVP",
+    },
     firstName: "First Name",
     lastName: "Last Name",
     email: "Email",
