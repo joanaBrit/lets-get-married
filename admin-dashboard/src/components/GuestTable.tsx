@@ -1,101 +1,81 @@
-import React, { useState } from 'react';
-import { LuInfo, LuChevronDown, LuChevronRight } from 'react-icons/lu';
-import { type ProcessedData } from '../utils';
+// import React from 'react';
+import { processRsvpData } from '../utils';
 
-interface GuestTableProps {
-  guests: ProcessedData['guests'];
-}
+import { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { AgGridReact } from 'ag-grid-react';
+import { LuCheck, LuBan } from 'react-icons/lu';
 
-function TableContent({ guests }: { guests: ProcessedData['guests'] }) {
+
+const DietPillRenderer = (props: any) => {
+  const { data } = props;
+  const pills: JSX.Element[] = [];
+  const commonClasses = 'px-2 py-0.5 text-xs rounded-full'
+  if (data?.vegetarian) {
+    pills.push(
+      <span
+        key="vegetarian"
+        className={`${commonClasses} bg-green-100 text-green-700 mr-1`}
+      >
+        Vegetarian
+      </span>
+    );
+  }
+
+  if (data?.vegan) {
+    pills.push(
+      <span
+        key="vegan"
+        className={`${commonClasses} bg-emerald-100 text-emerald-700"`}
+      >
+        Vegan
+      </span>
+    );
+  }
+
+  return <div className="flex items-center h-full">{pills}</div>;
+};
+
+const AttendanceRenderer = ({value, data}: ICellRendererParams) => {
+  
+
   return (
-    <table className="min-w-full divide-y divide-gray-200">
-      <thead className="bg-gray-50">
-        <tr>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
-        </tr>
-      </thead>
-      <tbody className="bg-white divide-y divide-gray-200">
-        {guests.map((guest, index) => (
-          <tr key={index}>
-            <td className="px-6 py-4 whitespace-nowrap">
-              <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                guest.isAccepted 
-                  ? 'bg-green-100 text-green-800' 
-                  : 'bg-red-100 text-red-800'
-              }`}>
-                {guest.isAccepted ? 'Attending' : 'Not Attending'}
-              </span>
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              {guest.firstName} {guest.lastName}
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              {guest.email}
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              {guest.phone || '-'}
-            </td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              <div className="flex items-center gap-1">
-                {guest.vegetarian && (
-                  <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">Vegetarian</span>
-                )}
-                {guest.vegan && (
-                  <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">Vegan</span>
-                )}
-                {guest.foodAllergies && (
-                  <span className="px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded">Allergies</span>
-                )}
-                {guest.requests && (
-                  <div className="relative group">
-                    <LuInfo className="w-5 h-5 text-blue-500 cursor-help" />
-                    <div className="absolute z-10 invisible group-hover:visible bg-gray-900 text-white text-sm rounded p-2 bottom-full mb-2 left-1/2 transform -translate-x-1/2 min-w-[200px] max-w-xs break-words">
-                      {guest.requests}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-gray-900"></div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="flex items-center justify-center h-full w-full">
+      {(value === "attending" || data.primaryContactId!==undefined) && <LuCheck className="text-green-600 text-lg" />}
+      {value === "not_attending" && <LuBan className="text-gray-400 text-lg" />}
+    </div>
   );
-}
+};
 
-export function GuestTable({ guests }: GuestTableProps) {
-  const [showDeclined, setShowDeclined] = useState(false);
-  const attendingGuests = guests.filter(g => g.isAccepted);
-  const notAttendingGuests = guests.filter(g => !g.isAccepted);
+export function GuestTable({ guests }: { guests: Array<any> }) {
+  const colDefs: Array<ColDef> = [
+    {
+      field: 'status', width: 75, cellRenderer: AttendanceRenderer, filterParams: {
+        values: ["Attending", "Not Attending"],
+
+        valueFormatter: (params: any) => {
+          if (params.value === "attending") return "Attending";
+          if (params.value === "not_attending") return "Not Attending";
+          return params.value;
+        },
+      }
+    }, { field: 'firstName' },
+    { field: 'lastName' },
+    
+    { field: 'diet', cellRenderer: DietPillRenderer },
+    { field: 'requests' },
+    { field: 'email' },
+    { field: 'phone' },
+    { field: 'pk' },
+  ]
 
   return (
-    <div className="space-y-6">
-      <div className="overflow-x-auto bg-white rounded-lg shadow">
-        <div className="p-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Attending Guests ({attendingGuests.length})</h2>
-        </div>
-        <TableContent guests={attendingGuests} />
-      </div>
-
-      <div className="overflow-x-auto bg-white rounded-lg shadow">
-        <button 
-          onClick={() => setShowDeclined(!showDeclined)}
-          className="w-full p-4 border-b border-gray-200 flex items-center justify-between text-left"
-        >
-          <h2 className="text-lg font-semibold text-gray-900">Not Attending ({notAttendingGuests.length})</h2>
-          {showDeclined ? (
-            <LuChevronDown className="w-5 h-5 text-gray-500" />
-          ) : (
-            <LuChevronRight className="w-5 h-5 text-gray-500" />
-          )}
-        </button>
-        {showDeclined && <TableContent guests={notAttendingGuests} />}
-      </div>
+    <div style={{ height: 500 }}>
+      <AgGridReact
+        rowData={guests}
+        // defaultColDef={{flex: 1}}
+        columnDefs={colDefs}
+        onFirstDataRendered={({ api }) => api.autoSizeAllColumns()}
+      />
     </div>
   );
 }

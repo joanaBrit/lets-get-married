@@ -25,6 +25,10 @@ export const pt = {
     mapUrl: "https://maps.app.goo.gl/7q3gZoptfZ3LRnrG7",
   },
   rsvp: {
+    button: {
+      default: "Confirmar presença",
+      closed: "Contacte-nos diretamente para confirmar presença",
+    },
     firstName: "Nome próprio",
     lastName: "Apelido",
     email: "Email",
