@@ -6,6 +6,9 @@ import { HomePage } from "./HomePage";
 import "./index.scss";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { Header } from "./sections";
+import { GuestArea } from "./GuestArea";
 
 const theme = createTheme({
   palette: {
@@ -24,10 +27,19 @@ const theme = createTheme({
   },
 });
 
+const router = createBrowserRouter([
+  { path: "/", Component: HomePage },
+  {
+    path: "/guest/",
+    Component: GuestArea,
+  },
+]);
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <HomePage />
+      <Header />
+      <RouterProvider router={router} />
     </ThemeProvider>
   </StrictMode>
 );

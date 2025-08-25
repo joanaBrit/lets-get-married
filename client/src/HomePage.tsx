@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Accommodation, Agenda, Header, Splash, Travel } from "./sections";
+import { Accommodation, Agenda, Splash, Travel } from "./sections";
 import { Venue } from "./sections/Venue";
 import { RSVPDialogContext } from "./contexts";
 
@@ -18,7 +18,6 @@ const RSVPDialogContextProvider = ({ children }: { children: ReactNode }) => {
 export function HomePage() {
   return (
     <RSVPDialogContextProvider>
-      <Header />
       <Splash />
       <Venue />
       <Travel />
