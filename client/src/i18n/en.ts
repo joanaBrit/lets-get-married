@@ -102,4 +102,42 @@ export const en = {
   generic: {
     placeholder: "More information to come",
   },
+  guestArea: {
+    title: "Guest Area",
+    greeting: "Hi {{firstName}}! 👋",
+    noUserId: "No user ID provided. Please check your URL.",
+    loading: "Loading user information...",
+    noUserData: "No user data available.",
+    badges: {
+      specialRequests: "Special Requests",
+      vegetarian: "Vegetarian",
+      vegan: "Vegan",
+      foodAllergies: "Food Allergies",
+    },
+    specialRequestsLabel: "Special Requests:",
+    busInfo: {
+      title: "Bus Transportation",
+      description: "You're signed up for bus transportation! Details about pickup times and locations will be shared closer to the wedding date.",
+    },
+    liveAnnouncements: {
+      title: "📢 Live Announcements",
+      description: "Important updates and announcements will appear here closer to the wedding date.",
+    },
+  },
+  mediaUpload: {
+    title: "📸 Share Your Photos & Videos",
+    description: "Upload your favorite photos and videos from the wedding to share with everyone!",
+    dragAndDrop: "Drag and drop your files here",
+    selectFiles: "Select Files",
+    supportedFormats: "Photos (JPG, PNG, GIF, WebP) and Videos (MP4, MOV, AVI, MKV, WebM)",
+    maxSize: "Max {{maxSize}}MB per file",
+    uploadedFiles: "Uploaded Files",
+    completed: "Completed",
+    error: "Error",
+    errors: {
+      fileTooLarge: "File is too large. Maximum size is {{maxSize}}MB.",
+      invalidFileType: "Invalid file type. Please upload photos or videos only.",
+      tooManyFiles: "Too many files. Maximum {{maxFiles}} files allowed.",
+    },
+  },
 };

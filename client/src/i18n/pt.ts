@@ -105,4 +105,42 @@ export const pt = {
   generic: {
     placeholder: "Mais informações brevemente",
   },
+  guestArea: {
+    title: "Área do Convidado",
+    greeting: "Olá {{firstName}}! 👋",
+    noUserId: "Nenhum ID de utilizador fornecido. Por favor, verifique o seu URL.",
+    loading: "A carregar informações do utilizador...",
+    noUserData: "Nenhum dado de utilizador disponível.",
+    badges: {
+      specialRequests: "Pedidos Especiais",
+      vegetarian: "Vegetariano",
+      vegan: "Vegan",
+      foodAllergies: "Alergias Alimentares",
+    },
+    specialRequestsLabel: "Pedidos Especiais:",
+    busInfo: {
+      title: "Transporte de Autocarro",
+      description: "Está inscrito para transporte de autocarro! Detalhes sobre horários e locais de recolha serão partilhados mais próximo da data do casamento.",
+    },
+    liveAnnouncements: {
+      title: "📢 Anúncios ao Vivo",
+      description: "Atualizações importantes e anúncios aparecerão aqui mais próximo da data do casamento.",
+    },
+  },
+  mediaUpload: {
+    title: "📸 Partilhe as Suas Fotos e Vídeos",
+    description: "Carregue as suas fotos e vídeos favoritos do casamento para partilhar com todos!",
+    dragAndDrop: "Arraste e largue os seus ficheiros aqui",
+    selectFiles: "Selecionar Ficheiros",
+    supportedFormats: "Fotos (JPG, PNG, GIF, WebP) e Vídeos (MP4, MOV, AVI, MKV, WebM)",
+    maxSize: "Máx {{maxSize}}MB por ficheiro",
+    uploadedFiles: "Ficheiros Carregados",
+    completed: "Concluído",
+    error: "Erro",
+    errors: {
+      fileTooLarge: "Ficheiro demasiado grande. Tamanho máximo é {{maxSize}}MB.",
+      invalidFileType: "Tipo de ficheiro inválido. Por favor carregue apenas fotos ou vídeos.",
+      tooManyFiles: "Demasiados ficheiros. Máximo {{maxFiles}} ficheiros permitidos.",
+    },
+  },
 };

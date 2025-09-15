@@ -36,7 +36,6 @@ export function RSVPDialog({
     });
     localStorage.setItem("user_email", formObject.email);
 
-    //@ts-ignore
     fetch(import.meta.env.VITE_RSVP_ENDPOINT, {
       method: "POST",
       body: JSON.stringify(formObject),
