@@ -146,23 +146,15 @@ export const pt = {
     optional:
       "No entanto, se desejarem contribuir, podem enviar um presente para os seguintes dados bancários:",
     bankDetails: {
-      eur: {
-        title: "Conta EUR",
-        sortCode: "Código do Banco",
-        accountNumber: "Número da Conta",
-        recipientName: "Nome do Beneficiário",
-        iban: "IBAN",
-      },
-      gbp: {
-        title: "Conta GBP",
-        sortCode: "Código do Banco",
-        accountNumber: "Número da Conta",
-        recipientName: "Nome do Beneficiário",
-        iban: "IBAN",
-      },
+      title: "Conta",
+      sortCode: "Código do Banco",
+      accountNumber: "Número da Conta",
+      recipientName: "Nome do Beneficiário",
+      iban: "IBAN",
     },
-    copyToClipboard: "Copiar para área de transferência",
     copied: "Copiado!",
+    noAccountDetails:
+      "Os detalhes da conta não estão atualmente disponíveis. Por favor, verifique novamente mais tarde ou contacte-nos diretamente.",
   },
   mediaUpload: {
     title: "📸 Partilhe as Suas Fotografias e Vídeos",

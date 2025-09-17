@@ -31,12 +31,12 @@ export function GuestArea() {
 
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_RSVP_ENDPOINT}/user?id=${userId}`,
+          `${import.meta.env.VITE_RSVP_ENDPOINT}/user?id=${userId}`
         );
 
         if (!response.ok) {
           throw new Error(
-            `Failed to fetch user data: ${response.status} ${response.statusText}`,
+            `Failed to fetch user data: ${response.status} ${response.statusText}`
           );
         }
 
@@ -46,7 +46,7 @@ export function GuestArea() {
         setError(
           err instanceof Error
             ? err.message
-            : "An error occurred while fetching user data",
+            : "An error occurred while fetching user data"
         );
       } finally {
         setLoading(false);
@@ -119,20 +119,7 @@ export function GuestArea() {
           />
 
           {/* Gift Registry */}
-          <GiftRegistry
-            eurAccount={{
-              sortCode: "12-34-56",
-              accountNumber: "12345678",
-              recipientName: "Joana & David Wedding",
-              iban: "GB29 NWBK 1234 5612 3456 78",
-            }}
-            gbpAccount={{
-              sortCode: "12-34-56",
-              accountNumber: "87654321",
-              recipientName: "Joana & David Wedding",
-              iban: "GB29 NWBK 1234 5687 6543 21",
-            }}
-          />
+          <GiftRegistry currencies={["EUR", "GBP"]} />
         </>
       ) : (
         <Alert severity="info">{t("guestArea.noUserData")}</Alert>

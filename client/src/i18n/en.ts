@@ -142,23 +142,15 @@ export const en = {
     optional:
       "However, if you would like to contribute, you can send a gift to the following bank details:",
     bankDetails: {
-      eur: {
-        title: "EUR Account",
-        sortCode: "Sort Code",
-        accountNumber: "Account Number",
-        recipientName: "Recipient Name",
-        iban: "IBAN",
-      },
-      gbp: {
-        title: "GBP Account",
-        sortCode: "Sort Code",
-        accountNumber: "Account Number",
-        recipientName: "Recipient Name",
-        iban: "IBAN",
-      },
+      title: "Account",
+      sortCode: "Sort Code",
+      accountNumber: "Account Number",
+      recipientName: "Recipient Name",
+      iban: "IBAN",
     },
-    copyToClipboard: "Copy to clipboard",
     copied: "Copied!",
+    noAccountDetails:
+      "Account details are not currently available. Please check back later or contact us directly.",
   },
   mediaUpload: {
     title: "📸 Share Your Photos & Videos",
