@@ -13,7 +13,7 @@ export function PropertyCard(
     title: string;
     address: string;
     link?: string;
-  }
+  },
 ) {
   return (
     <Card className="property-card">

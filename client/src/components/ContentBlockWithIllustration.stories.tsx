@@ -13,7 +13,7 @@ type Story = StoryObj<typeof ContentBlockWithIllustration>;
 export const Primary: Story = {
   args: {
     image: "https://placehold.co/600x400",
-    imagePosition: 'left',
+    imagePosition: "left",
     children: (
       <div>
         <h1>Some content</h1>

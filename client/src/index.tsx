@@ -41,5 +41,5 @@ createRoot(document.getElementById("root")!).render(
       <Header />
       <RouterProvider router={router} />
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

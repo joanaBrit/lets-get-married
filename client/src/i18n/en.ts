@@ -117,26 +117,67 @@ export const en = {
     specialRequestsLabel: "Special Requests:",
     busInfo: {
       title: "Bus Transportation",
-      description: "You're signed up for bus transportation! Details about pickup times and locations will be shared closer to the wedding date.",
+      description:
+        "You're signed up for bus transportation! Details about pickup times and locations will be shared closer to the wedding date.",
     },
-    liveAnnouncements: {
-      title: "📢 Live Announcements",
-      description: "Important updates and announcements will appear here closer to the wedding date.",
+    transportInfo: {
+      busTitle: "Bus Transportation",
+      busDescription:
+        "You got a seat on our shuttle bus!<br><br>The pick up is on <strong>Viale Gallipoli</strong> in Lecce, close to Camera di Commercio and walking distance from the rail station. The bus will depart at 2:30pm.",
+      carTitle: "Transportation",
+      carDescription:
+        "You're arranging your own transportation by hiring a car.<br><br> Note that there is NO AVAILABILITY of ride hailing services (e.g. Uber, Bolt, Freenow etc).<br><br>If this is not accurate, please contact us directly.",
     },
+    mysteryGame: {
+      title: "Mystery Game",
+      description:
+        "A mystery awaits to be unravelled on the wedding day. More details to come...",
+      subtitle: "Get ready for an adventure!",
+    },
+  },
+  giftRegistry: {
+    title: "🎁 Gift Registry",
+    message:
+      "Your presence at our wedding is the greatest gift we could ask for! No gifts are necessary.",
+    optional:
+      "However, if you would like to contribute, you can send a gift to the following bank details:",
+    bankDetails: {
+      eur: {
+        title: "EUR Account",
+        sortCode: "Sort Code",
+        accountNumber: "Account Number",
+        recipientName: "Recipient Name",
+        iban: "IBAN",
+      },
+      gbp: {
+        title: "GBP Account",
+        sortCode: "Sort Code",
+        accountNumber: "Account Number",
+        recipientName: "Recipient Name",
+        iban: "IBAN",
+      },
+    },
+    copyToClipboard: "Copy to clipboard",
+    copied: "Copied!",
   },
   mediaUpload: {
     title: "📸 Share Your Photos & Videos",
-    description: "Upload your favorite photos and videos from the wedding to share with everyone!",
+    description:
+      "Upload your favorite photos and videos from the wedding to share with everyone!",
+    openSoon:
+      "Coming soon! You'll be able to share your photos and videos from the wedding day with us here.",
     dragAndDrop: "Drag and drop your files here",
     selectFiles: "Select Files",
-    supportedFormats: "Photos (JPG, PNG, GIF, WebP) and Videos (MP4, MOV, AVI, MKV, WebM)",
+    supportedFormats:
+      "Photos (JPG, PNG, GIF, WebP) and Videos (MP4, MOV, AVI, MKV, WebM)",
     maxSize: "Max {{maxSize}}MB per file",
     uploadedFiles: "Uploaded Files",
     completed: "Completed",
     error: "Error",
     errors: {
       fileTooLarge: "File is too large. Maximum size is {{maxSize}}MB.",
-      invalidFileType: "Invalid file type. Please upload photos or videos only.",
+      invalidFileType:
+        "Invalid file type. Please upload photos or videos only.",
       tooManyFiles: "Too many files. Maximum {{maxFiles}} files allowed.",
     },
   },

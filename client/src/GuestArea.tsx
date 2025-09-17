@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { Card, Alert } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { BusInfo } from "./components/BusInfo";
+import { TransportInfo } from "./components/BusInfo";
 import { LiveAnnouncement } from "./components/LiveAnnouncement";
 import { UserBadges } from "./components/UserBadges";
 import "./GuestArea.scss";
 import { UserData } from "./@types";
-
+import { MediaUpload } from "./components/MediaUpload";
+import { GiftRegistry } from "./components/GiftRegistry";
 
 export function GuestArea() {
   const { t } = useTranslation();
@@ -16,29 +17,37 @@ export function GuestArea() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const userId = searchParams.get('id');
+  const userId = searchParams.get("id");
 
   useEffect(() => {
     if (!userId) {
-      setError('No user ID provided in URL');
+      setError("No user ID provided in URL");
       return;
     }
 
     const fetchUserData = async () => {
       setLoading(true);
       setError(null);
-      
+
       try {
-        const response = await fetch(`${import.meta.env.VITE_RSVP_ENDPOINT}/user?id=${userId}`);
-        
+        const response = await fetch(
+          `${import.meta.env.VITE_RSVP_ENDPOINT}/user?id=${userId}`,
+        );
+
         if (!response.ok) {
-          throw new Error(`Failed to fetch user data: ${response.status} ${response.statusText}`);
+          throw new Error(
+            `Failed to fetch user data: ${response.status} ${response.statusText}`,
+          );
         }
-        
+
         const data = await response.json();
         setUserData(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred while fetching user data');
+        setError(
+          err instanceof Error
+            ? err.message
+            : "An error occurred while fetching user data",
+        );
       } finally {
         setLoading(false);
       }
@@ -50,11 +59,8 @@ export function GuestArea() {
   if (!userId) {
     return (
       <div className="guest-area">
-        <h4 className="title">{t('guestArea.title')}</h4>
         <div className="error-container">
-          <Alert severity="warning">
-            {t('guestArea.noUserId')}
-          </Alert>
+          <Alert severity="warning">{t("guestArea.noUserId")}</Alert>
         </div>
       </div>
     );
@@ -63,9 +69,8 @@ export function GuestArea() {
   if (loading) {
     return (
       <div className="guest-area">
-        <h4 className="title">{t('guestArea.title')}</h4>
         <div className="loading-container">
-          <p className="loading-text">{t('guestArea.loading')}</p>
+          <p className="loading-text">{t("guestArea.loading")}</p>
         </div>
       </div>
     );
@@ -74,7 +79,6 @@ export function GuestArea() {
   if (error) {
     return (
       <div className="guest-area">
-        <h4 className="title">{t('guestArea.title')}</h4>
         <div className="error-container">
           <Alert severity="error">{error}</Alert>
         </div>
@@ -84,43 +88,54 @@ export function GuestArea() {
 
   return (
     <div className="guest-area">
-      <h4 className="title">
-        {t('guestArea.title')}
-      </h4>
-      
       {userData ? (
         <>
-          {/* Welcome Card */}
-          <Card className="welcome-card">
-            <h3 className="greeting">
-              {t('guestArea.greeting', { firstName: userData.firstName })}
-            </h3>
-            
-            {/* User Badges */}
+          {/* Welcome Section */}
+          <div className="welcome-section">
+            <h2 className="main-greeting">
+              {t("guestArea.greeting", { firstName: userData.firstName })}
+            </h2>
+            {/* User Badges - without card container */}
             <UserBadges userData={userData} />
-            
+
             {/* Special requests details */}
             {userData.requests && (
-              <div className="special-requests">
-                <p className="label">
-                  {t('guestArea.specialRequestsLabel')}
-                </p>
-                <p className="content">
-                  {userData.requests}
-                </p>
-              </div>
+              <Card className="special-requests-card">
+                <p className="label">{t("guestArea.specialRequestsLabel")}</p>
+                <p className="content">{userData.requests}</p>
+              </Card>
             )}
-          </Card>
-          
-          {userData.bus && <BusInfo />}
-          
-          {/* <MediaUpload userId={userData.id} maxFiles={20} maxFileSize={100} /> */}
-          
-          {/* Live Announcements */}
+          </div>
+
+          <TransportInfo isOnBus={!!userData.bus} />
+
           <LiveAnnouncement />
+
+          <MediaUpload
+            userId={userData.id}
+            maxFiles={20}
+            maxFileSize={100}
+            uploadEnabled={false}
+          />
+
+          {/* Gift Registry */}
+          <GiftRegistry
+            eurAccount={{
+              sortCode: "12-34-56",
+              accountNumber: "12345678",
+              recipientName: "Joana & David Wedding",
+              iban: "GB29 NWBK 1234 5612 3456 78",
+            }}
+            gbpAccount={{
+              sortCode: "12-34-56",
+              accountNumber: "87654321",
+              recipientName: "Joana & David Wedding",
+              iban: "GB29 NWBK 1234 5687 6543 21",
+            }}
+          />
         </>
       ) : (
-        <Alert severity="info">{t('guestArea.noUserData')}</Alert>
+        <Alert severity="info">{t("guestArea.noUserData")}</Alert>
       )}
     </div>
   );

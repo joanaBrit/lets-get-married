@@ -17,7 +17,7 @@ export function RSVPDialog({
 }) {
   const formRef = useRef<HTMLFormElement>(null);
   const [submitStatus, setSubmitStatus] = useState<{ ok: boolean } | null>(
-    null
+    null,
   );
   const [showGuestIndex, setShowGuestIndex] = useState(0);
   const [additional, setAdditional] = useState(0);

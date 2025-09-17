@@ -27,7 +27,7 @@ export const pt = {
   rsvp: {
     button: {
       default: "Confirmar presença",
-      closed: "Contacte-nos diretamente para confirmar presença",
+      closed: "Contacte-nos directamente para confirmar presença",
     },
     firstName: "Nome próprio",
     lastName: "Apelido",
@@ -37,7 +37,7 @@ export const pt = {
     yes: "😍 Contem comigo!",
     no: "😢 Lamentavelmente não poderei comparecer",
     success: "Obrigado pela sua resposta",
-    failed: "Algo correu mal. Contacte-nos diretamente.",
+    failed: "Algo correu mal. Contacte-nos directamente.",
     guest: "Convidado",
     vegetarian: "Vegetariano",
     vegan: "Vegan",
@@ -108,7 +108,8 @@ export const pt = {
   guestArea: {
     title: "Área do Convidado",
     greeting: "Olá {{firstName}}! 👋",
-    noUserId: "Nenhum ID de utilizador fornecido. Por favor, verifique o seu URL.",
+    noUserId:
+      "Nenhum ID de utilizador fornecido. Por favor, verifique o seu URL.",
     loading: "A carregar informações do utilizador...",
     noUserData: "Nenhum dado de utilizador disponível.",
     badges: {
@@ -120,27 +121,70 @@ export const pt = {
     specialRequestsLabel: "Pedidos Especiais:",
     busInfo: {
       title: "Transporte de Autocarro",
-      description: "Está inscrito para transporte de autocarro! Detalhes sobre horários e locais de recolha serão partilhados mais próximo da data do casamento.",
+      description:
+        "Está inscrito para transporte de autocarro! Detalhes sobre horários e locais de recolha serão partilhados mais próximo da data do casamento.",
     },
-    liveAnnouncements: {
-      title: "📢 Anúncios ao Vivo",
-      description: "Atualizações importantes e anúncios aparecerão aqui mais próximo da data do casamento.",
+    transportInfo: {
+      busTitle: "Transporte de Autocarro",
+      busDescription:
+        "Tem um lugar no nosso autocarro!<br><br>A recolha é na <strong>Viale Gallipoli</strong> em Lecce, perto da Camera di Commercio e a uma curta distância da estação ferroviária. O autocarro partirá às 14:30.",
+      carTitle: "Transporte",
+      carDescription:
+        "Está a organizar o seu próprio transporte alugando um carro.<br><br> Note que NÃO HÁ DISPONIBILIDADE de serviços de transporte por aplicação (ex: Uber, Bolt, Freenow, etc).<br><br>Se isto não estiver correcto, por favor contacte-nos directamente.",
+    },
+    mysteryGame: {
+      title: "Jogo de Mistério",
+      description:
+        "Um mistério aguarda para ser desvendado no dia do casamento. Mais detalhes em breve...",
+      subtitle: "Preparem-se para uma aventura!",
     },
   },
+  giftRegistry: {
+    title: "🎁 Presentes",
+    message:
+      "A vossa presença no nosso casamento é o maior presente que podemos pedir! Não são necessários presentes.",
+    optional:
+      "No entanto, se desejarem contribuir, podem enviar um presente para os seguintes dados bancários:",
+    bankDetails: {
+      eur: {
+        title: "Conta EUR",
+        sortCode: "Código do Banco",
+        accountNumber: "Número da Conta",
+        recipientName: "Nome do Beneficiário",
+        iban: "IBAN",
+      },
+      gbp: {
+        title: "Conta GBP",
+        sortCode: "Código do Banco",
+        accountNumber: "Número da Conta",
+        recipientName: "Nome do Beneficiário",
+        iban: "IBAN",
+      },
+    },
+    copyToClipboard: "Copiar para área de transferência",
+    copied: "Copiado!",
+  },
   mediaUpload: {
-    title: "📸 Partilhe as Suas Fotos e Vídeos",
-    description: "Carregue as suas fotos e vídeos favoritos do casamento para partilhar com todos!",
+    title: "📸 Partilhe as Suas Fotografias e Vídeos",
+    description:
+      "Carregue as suas fotografias e vídeos favoritos do casamento para partilhar com todos!",
+    openSoon:
+      "Em breve! Poderá partilhar as suas fotografias e vídeos do dia do casamento connosco aqui.",
     dragAndDrop: "Arraste e largue os seus ficheiros aqui",
-    selectFiles: "Selecionar Ficheiros",
-    supportedFormats: "Fotos (JPG, PNG, GIF, WebP) e Vídeos (MP4, MOV, AVI, MKV, WebM)",
+    selectFiles: "Seleccionar Ficheiros",
+    supportedFormats:
+      "Fotografias (JPG, PNG, GIF, WebP) e Vídeos (MP4, MOV, AVI, MKV, WebM)",
     maxSize: "Máx {{maxSize}}MB por ficheiro",
     uploadedFiles: "Ficheiros Carregados",
     completed: "Concluído",
     error: "Erro",
     errors: {
-      fileTooLarge: "Ficheiro demasiado grande. Tamanho máximo é {{maxSize}}MB.",
-      invalidFileType: "Tipo de ficheiro inválido. Por favor carregue apenas fotos ou vídeos.",
-      tooManyFiles: "Demasiados ficheiros. Máximo {{maxFiles}} ficheiros permitidos.",
+      fileTooLarge:
+        "Ficheiro demasiado grande. Tamanho máximo é {{maxSize}}MB.",
+      invalidFileType:
+        "Tipo de ficheiro inválido. Por favor, carregue apenas fotografias ou vídeos.",
+      tooManyFiles:
+        "Demasiados ficheiros. Máximo {{maxFiles}} ficheiros permitidos.",
     },
   },
 };
