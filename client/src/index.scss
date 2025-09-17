@@ -5,7 +5,83 @@
   --theme-secondary: #bed62e;
   --theme-primary-text: #fff;
   --theme-secondary-text: #000;
-  color: #333;
+  
+  // Text colors
+  --text-primary: #333;
+  --text-secondary: #424242;
+  --text-muted: #6c757d;
+  --text-white: #fff;
+  
+  // Background colors
+  --bg-light: #f5f5f5;
+  --bg-white-transparent: rgba(255, 255, 255, 0.7);
+  --bg-white-semi: rgba(255, 255, 255, 0.9);
+  
+  // Spacing
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  // Border radius
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-round: 50%;
+  
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-nested: 0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-timeline-dot: 0 1px 3px rgba(0, 0, 0, 0.08);
+  
+  // Font sizes
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  --font-size-xxxl: 3rem;
+  
+  // Font weights
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  
+  // Gradients
+  --gradient-mystery: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-mystery-hover: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  --gradient-mystery-content: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-timeline: linear-gradient(to bottom, transparent 0%, #e0e0e0 10%, #e0e0e0 90%, transparent 100%);
+  
+  // Line heights
+  --line-height-tight: 1.334;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  
+  // Breakpoints (for reference in comments)
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 1024px;
+  
+  // Common dimensions
+  --icon-size-sm: 18px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --timeline-dot-size: 32px;
+  --timeline-line-offset: 16px;
+  --min-height-accordion: 64px;
+  
+  // Common paddings
+  --padding-detail-row: 0.75rem;
+  --min-width-label: 120px;
+  
+  color: var(--text-primary);
   font-size: 16px;
   font-family:
     "Poppins", "Gill Sans", "Gill Sans MT", Calibri, Helvetica, sans-serif;

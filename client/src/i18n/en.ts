@@ -48,6 +48,23 @@ export const en = {
     title: "Schedule",
     content: "Ceremony from around noon.<br> More information to come.",
   },
+  schedule: {
+    title: "Schedule",
+    items: [
+      { time: "3:00pm", name: "Guest arrival and welcome drinks" },
+      { time: "3:30pm", name: "Ceremony begins" },
+      { time: "4:00pm", name: "Cocktails and canapés" },
+      { time: "5:15pm", name: "Dinner service begins" },
+      { time: "7:30pm", name: "Open bar service begins" },
+      { time: "7:45pm", name: "Wedding cake cutting" },
+      { time: "8:15pm", name: "Dancing begins" },
+      { time: "10:00pm", name: "First bus shuttle service to Lecce" },
+      {
+        time: "12:00am",
+        name: "Second bus shuttle service to Lecce and Brindisi",
+      },
+    ],
+  },
   travel: {
     title: "Travel",
     gettingIn: {
@@ -106,7 +123,8 @@ export const en = {
     title: "Guest Area",
     greeting: "Hi {{firstName}}! 👋",
     noUserId: "No user ID provided. Please check your URL.",
-    loading: "Loading user information...",
+    loading: "Welcome! We're getting your information ready...",
+    loadingSubtext: "This will just take a moment ✨",
     noUserData: "No user data available.",
     badges: {
       specialRequests: "Special Requests",
@@ -123,7 +141,9 @@ export const en = {
     transportInfo: {
       busTitle: "Bus Transportation",
       busDescription:
-        "You got a seat on our shuttle bus!<br><br>The pick up is on <strong>Viale Gallipoli</strong> in Lecce, close to Camera di Commercio and walking distance from the rail station. The bus will depart at 2:30pm.",
+        "You got a seat on our shuttle bus!<br><br>The pick up is on <strong>Viale Gallipoli</strong> in Lecce, close to Camera di Commercio and walking distance from the rail station. The bus will depart at 2:30pm.<br><br><strong>Return Schedule:</strong><br>• First return bus departs from Tenuta Tresca at 10:00pm, arriving at Lecce (same pickup location) around 10:30pm<br>• Second return bus departs at 12:00am, arriving in Lecce around 12:30am, and in Brindisi (around rail station) at around 1:00am",
+      busMapEmbedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d760.1950901084264!2d18.169069960985432!3d40.34721811500527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13442f1fb04a2e57%3A0x3118189b1ff3757f!2sLecce%20-%20Viale%20Gallipoli%2026%20A(CAMERA%20DI%20COMMERCIO)%20-%20Salento%20in%20Bus!5e0!3m2!1sen!2suk!4v1758130602409!5m2!1sen!2suk",
       carTitle: "Transportation",
       carDescription:
         "You're arranging your own transportation by hiring a car.<br><br> Note that there is NO AVAILABILITY of ride hailing services (e.g. Uber, Bolt, Freenow etc).<br><br>If this is not accurate, please contact us directly.",

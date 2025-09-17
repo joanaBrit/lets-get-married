@@ -147,15 +147,15 @@ export function MediaUpload({
                 url: publicUrl,
                 uploadProgress: 100,
               }
-            : f,
-        ),
+            : f
+        )
       );
     } catch (error) {
       console.error("Upload error:", error);
       setFiles((prev) =>
         prev.map((f) =>
-          f.id === fileId ? { ...f, status: "error" as const } : f,
-        ),
+          f.id === fileId ? { ...f, status: "error" as const } : f
+        )
       );
     }
   };
@@ -229,7 +229,7 @@ export function MediaUpload({
   return (
     <Accordion
       defaultExpanded
-      className={`media-upload ${!uploadEnabled ? "coming-soon" : ""}`}
+      className={`accordion-card media-upload ${!uploadEnabled ? "coming-soon" : ""}`}
     >
       <AccordionSummary expandIcon={<ExpandIcon />}>
         <div className="header">

@@ -16,7 +16,7 @@ export function TransportInfo({ isOnBus }: TransportInfoProps) {
   return (
     <Accordion
       defaultExpanded
-      className={`transport-info ${isOnBus ? "bus" : "car"}`}
+      className={`accordion-card transport-info ${isOnBus ? "bus" : "car"}`}
     >
       <AccordionSummary expandIcon={<ExpandIcon />}>
         <div className="header">
@@ -33,15 +33,32 @@ export function TransportInfo({ isOnBus }: TransportInfoProps) {
         </div>
       </AccordionSummary>
       <AccordionDetails>
-        <p className="description">
-          <Trans
-            i18nKey={
-              isOnBus
-                ? "guestArea.transportInfo.busDescription"
-                : "guestArea.transportInfo.carDescription"
-            }
-          />
-        </p>
+        <div className="transport-content">
+          <p className="description">
+            <Trans
+              i18nKey={
+                isOnBus
+                  ? "guestArea.transportInfo.busDescription"
+                  : "guestArea.transportInfo.carDescription"
+              }
+            />
+          </p>
+
+          {isOnBus && (
+            <div className="map-container">
+              <iframe
+                src={t("guestArea.transportInfo.busMapEmbedUrl")}
+                width="100%"
+                height="300"
+                style={{ border: 0, borderRadius: "var(--radius-md)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Bus pickup location - Viale Gallipoli, Lecce"
+              />
+            </div>
+          )}
+        </div>
       </AccordionDetails>
     </Accordion>
   );

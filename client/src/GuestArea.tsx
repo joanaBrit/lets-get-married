@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { Card, Alert } from "@mui/material";
+import { Card, Alert, CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { TransportInfo } from "./components/BusInfo";
 import { LiveAnnouncement } from "./components/LiveAnnouncement";
@@ -9,6 +9,7 @@ import "./GuestArea.scss";
 import { UserData } from "./@types";
 import { MediaUpload } from "./components/MediaUpload";
 import { GiftRegistry } from "./components/GiftRegistry";
+import { Schedule } from "./components/Schedule";
 
 export function GuestArea() {
   const { t } = useTranslation();
@@ -70,7 +71,16 @@ export function GuestArea() {
     return (
       <div className="guest-area">
         <div className="loading-container">
+          <CircularProgress
+            size={48}
+            thickness={4}
+            sx={{
+              color: "var(--theme-primary)",
+              marginBottom: "var(--spacing-md)",
+            }}
+          />
           <p className="loading-text">{t("guestArea.loading")}</p>
+          <p className="loading-subtext">{t("guestArea.loadingSubtext")}</p>
         </div>
       </div>
     );
@@ -108,17 +118,14 @@ export function GuestArea() {
           </div>
 
           <TransportInfo isOnBus={!!userData.bus} />
-
+          <Schedule />
           <LiveAnnouncement />
-
           <MediaUpload
             userId={userData.id}
             maxFiles={20}
             maxFileSize={100}
             uploadEnabled={false}
           />
-
-          {/* Gift Registry */}
           <GiftRegistry currencies={["EUR", "GBP"]} />
         </>
       ) : (

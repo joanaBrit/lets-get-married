@@ -39,7 +39,7 @@ const BankDetailsSection = memo(
     const { t } = useTranslation();
 
     return (
-      <Accordion className="bank-account">
+      <Accordion className="nested-accordion bank-account">
         <AccordionSummary expandIcon={<ExpandIcon />}>
           <div className="currency-header">
             <span className="currency-title">
@@ -190,7 +190,7 @@ export function GiftRegistry({ currencies = [] }: GiftRegistryProps) {
 
   return (
     <>
-      <Accordion defaultExpanded className="gift-registry">
+      <Accordion defaultExpanded className="accordion-card gift-registry">
         <AccordionSummary expandIcon={<ExpandIcon />}>
           <h6 className="title">{t("giftRegistry.title")}</h6>
         </AccordionSummary>

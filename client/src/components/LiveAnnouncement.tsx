@@ -1,15 +1,12 @@
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
-import {
-  ExpandMore as ExpandIcon,
-  Person as DetectiveIcon,
-} from "@mui/icons-material";
+import { ExpandMore as ExpandIcon } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
 export function MysteryGame() {
   const { t } = useTranslation();
 
   return (
-    <Accordion defaultExpanded className="mystery-game">
+    <Accordion defaultExpanded className="accordion-card mystery-game">
       <AccordionSummary expandIcon={<ExpandIcon />}>
         <div className="header">
           <span style={{ fontSize: 32 }}>🕵️</span>

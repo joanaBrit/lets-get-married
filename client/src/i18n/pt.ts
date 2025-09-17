@@ -49,6 +49,26 @@ export const pt = {
     content:
       "Cerimónia por volta do meio-dia.<br> Mais informações brevemente.",
   },
+  schedule: {
+    title: "Programa",
+    items: [
+      {
+        time: "15:00",
+        name: "Chegada dos convidados e bebidas de boas-vindas",
+      },
+      { time: "15:30", name: "Início da cerimónia" },
+      { time: "16:00", name: "Cocktails e canapés" },
+      { time: "17:15", name: "Início do serviço de jantar" },
+      { time: "19:30", name: "Início do serviço de bar aberto" },
+      { time: "19:45", name: "Corte do bolo de casamento" },
+      { time: "20:15", name: "Início do baile" },
+      { time: "22:00", name: "Primeiro serviço de autocarro para Lecce" },
+      {
+        time: "00:00",
+        name: "Segundo serviço de autocarro para Lecce e Brindisi",
+      },
+    ],
+  },
   travel: {
     title: "Viagem",
     gettingIn: {
@@ -110,7 +130,8 @@ export const pt = {
     greeting: "Olá {{firstName}}! 👋",
     noUserId:
       "Nenhum ID de utilizador fornecido. Por favor, verifique o seu URL.",
-    loading: "A carregar informações do utilizador...",
+    loading: "Bem-vindo! Estamos a preparar as suas informações...",
+    loadingSubtext: "Isto será apenas um momento ✨",
     noUserData: "Nenhum dado de utilizador disponível.",
     badges: {
       specialRequests: "Pedidos Especiais",
@@ -127,7 +148,9 @@ export const pt = {
     transportInfo: {
       busTitle: "Transporte de Autocarro",
       busDescription:
-        "Tem um lugar no nosso autocarro!<br><br>A recolha é na <strong>Viale Gallipoli</strong> em Lecce, perto da Camera di Commercio e a uma curta distância da estação ferroviária. O autocarro partirá às 14:30.",
+        "Tem um lugar no nosso autocarro!<br><br>A recolha é na <strong>Viale Gallipoli</strong> em Lecce, perto da Camera di Commercio e a uma curta distância da estação ferroviária. O autocarro partirá às 14:30.<br><br><strong>Horário de Regresso:</strong><br>• Primeiro autocarro de regresso parte da Tenuta Tresca às 22:00, chegando a Lecce (mesmo local de recolha) por volta das 22:30<br>• Segundo autocarro de regresso parte às 00:00, chegando a Lecce por volta das 00:30, e a Brindisi (perto da estação ferroviária) por volta da 01:00",
+      busMapEmbedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d760.1950901084264!2d18.169069960985432!3d40.34721811500527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13442f1fb04a2e57%3A0x3118189b1ff3757f!2sLecce%20-%20Viale%20Gallipoli%2026%20A(CAMERA%20DI%20COMMERCIO)%20-%20Salento%20in%20Bus!5e0!3m2!1sen!2suk!4v1758130602409!5m2!1sen!2suk",
       carTitle: "Transporte",
       carDescription:
         "Está a organizar o seu próprio transporte alugando um carro.<br><br> Note que NÃO HÁ DISPONIBILIDADE de serviços de transporte por aplicação (ex: Uber, Bolt, Freenow, etc).<br><br>Se isto não estiver correcto, por favor contacte-nos directamente.",
