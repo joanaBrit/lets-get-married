@@ -45,7 +45,6 @@ export function GuestArea() {
         const data = await response.json();
         setUserData(data);
 
-        // Set language based on user data, fallback to 'en'
         const userLang = data.lang || "en";
         i18n.changeLanguage(userLang);
       } catch (err) {

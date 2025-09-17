@@ -7,8 +7,8 @@ import "./index.scss";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { Header } from "./sections";
 import { GuestArea } from "./GuestArea";
+import { Layout } from "./Layout";
 
 const theme = createTheme({
   palette: {
@@ -28,18 +28,20 @@ const theme = createTheme({
 });
 
 const router = createBrowserRouter([
-  { path: "/", Component: HomePage },
   {
-    path: "/guest/",
-    Component: GuestArea,
+    path: "/",
+    Component: Layout,
+    children: [
+      { index: true, Component: HomePage },
+      { path: "guest/", Component: GuestArea },
+    ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <Header />
       <RouterProvider router={router} />
     </ThemeProvider>
-  </StrictMode>,
+  </StrictMode>
 );
