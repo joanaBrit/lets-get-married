@@ -14,10 +14,10 @@ import {
 import { useTranslation } from "react-i18next";
 
 interface BankDetails {
-  sortCode: string;
-  accountNumber: string;
-  recipientName: string;
-  iban: string;
+  sortCode?: string;
+  accountNumber?: string;
+  recipientName?: string;
+  iban?: string;
 }
 
 interface GiftRegistryProps {
@@ -34,6 +34,41 @@ interface BankDetailsSectionProps {
   ) => void;
 }
 
+interface BankDetailRowProps {
+  value?: string;
+  labelKey: string;
+  copyLabel: string;
+  onCopyToClipboard: (
+    text: string,
+    label: string,
+    event: React.MouseEvent
+  ) => void;
+}
+
+const BankDetailRow = memo(
+  ({ value, labelKey, copyLabel, onCopyToClipboard }: BankDetailRowProps) => {
+    const { t } = useTranslation();
+
+    if (!value) return null;
+
+    return (
+      <div className="bank-detail-row">
+        <span className="bank-detail-label">{t(labelKey)}:</span>
+        <div className="bank-detail-value-container">
+          <span className="bank-detail-value">{value}</span>
+          <Button
+            size="small"
+            onClick={(e) => onCopyToClipboard(value, copyLabel, e)}
+            className="bank-detail-copy-button"
+          >
+            <CopyIcon />
+          </Button>
+        </div>
+      </div>
+    );
+  }
+);
+
 const BankDetailsSection = memo(
   ({ account, currency, onCopyToClipboard }: BankDetailsSectionProps) => {
     const { t } = useTranslation();
@@ -48,84 +83,31 @@ const BankDetailsSection = memo(
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <div className="bank-details">
-            <div className="detail-row">
-              <span className="label">
-                {t(`giftRegistry.bankDetails.recipientName`)}:
-              </span>
-              <div className="value-with-copy">
-                <span className="value">{account.recipientName}</span>
-                <Button
-                  size="small"
-                  onClick={(e) =>
-                    onCopyToClipboard(
-                      account.recipientName,
-                      account.recipientName,
-                      e
-                    )
-                  }
-                  className="copy-button"
-                >
-                  <CopyIcon />
-                </Button>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <span className="label">
-                {t(`giftRegistry.bankDetails.sortCode`)}:
-              </span>
-              <div className="value-with-copy">
-                <span className="value">{account.sortCode}</span>
-                <Button
-                  size="small"
-                  onClick={(e) =>
-                    onCopyToClipboard(account.sortCode, "Sort Code", e)
-                  }
-                  className="copy-button"
-                >
-                  <CopyIcon />
-                </Button>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <span className="label">
-                {t(`giftRegistry.bankDetails.accountNumber`)}:
-              </span>
-              <div className="value-with-copy">
-                <span className="value">{account.accountNumber}</span>
-                <Button
-                  size="small"
-                  onClick={(e) =>
-                    onCopyToClipboard(
-                      account.accountNumber,
-                      "Account Number",
-                      e
-                    )
-                  }
-                  className="copy-button"
-                >
-                  <CopyIcon />
-                </Button>
-              </div>
-            </div>
-
-            <div className="detail-row">
-              <span className="label">
-                {t(`giftRegistry.bankDetails.iban`)}:
-              </span>
-              <div className="value-with-copy">
-                <span className="value">{account.iban}</span>
-                <Button
-                  size="small"
-                  onClick={(e) => onCopyToClipboard(account.iban, "IBAN", e)}
-                  className="copy-button"
-                >
-                  <CopyIcon />
-                </Button>
-              </div>
-            </div>
+          <div className="bank-details-container">
+            <BankDetailRow
+              value={account.recipientName}
+              labelKey="giftRegistry.bankDetails.recipientName"
+              copyLabel="Recipient Name"
+              onCopyToClipboard={onCopyToClipboard}
+            />
+            <BankDetailRow
+              value={account.sortCode}
+              labelKey="giftRegistry.bankDetails.sortCode"
+              copyLabel="Sort Code"
+              onCopyToClipboard={onCopyToClipboard}
+            />
+            <BankDetailRow
+              value={account.accountNumber}
+              labelKey="giftRegistry.bankDetails.accountNumber"
+              copyLabel="Account Number"
+              onCopyToClipboard={onCopyToClipboard}
+            />
+            <BankDetailRow
+              value={account.iban}
+              labelKey="giftRegistry.bankDetails.iban"
+              copyLabel="IBAN"
+              onCopyToClipboard={onCopyToClipboard}
+            />
           </div>
         </AccordionDetails>
       </Accordion>
@@ -153,13 +135,13 @@ export function GiftRegistry({ currencies = [] }: GiftRegistryProps) {
       `VITE_BANKING_${currency}_IBAN` as keyof ImportMetaEnv
     ];
 
-    // Only return account details if all required fields are present
-    if (sortCode && accountNumber && recipientName && iban) {
+    // Return account details if any fields are present
+    if (sortCode || accountNumber || recipientName || iban) {
       return {
-        sortCode,
-        accountNumber,
-        recipientName,
-        iban,
+        ...(sortCode && { sortCode }),
+        ...(accountNumber && { accountNumber }),
+        ...(recipientName && { recipientName }),
+        ...(iban && { iban }),
       };
     }
     return null;

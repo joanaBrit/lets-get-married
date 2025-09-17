@@ -453,8 +453,8 @@
           }
         }
 
-        .bank-details {
-          .detail-row {
+        .bank-details-container {
+          .bank-detail-row {
             margin-bottom: var(--spacing-md);
             padding: var(--padding-detail-row);
             background-color: var(--bg-white-transparent);
@@ -479,7 +479,7 @@
               margin-bottom: 0;
             }
 
-            .label {
+            .bank-detail-label {
               font-weight: var(--font-weight-medium);
               color: var(--text-secondary);
 
@@ -488,7 +488,7 @@
               }
             }
 
-            .value-with-copy {
+            .bank-detail-value-container {
               display: flex;
               align-items: center;
               gap: var(--spacing-sm);
@@ -505,7 +505,7 @@
                 justify-content: flex-end;
               }
 
-              .value {
+              .bank-detail-value {
                 font-family: "Courier New", monospace;
                 background-color: var(--bg-light);
                 padding: var(--spacing-xs) var(--spacing-sm);
@@ -519,7 +519,7 @@
                 }
               }
 
-              .copy-button {
+              .bank-detail-copy-button {
                 min-width: auto;
                 padding: var(--spacing-xs) var(--spacing-sm);
                 font-size: var(--font-size-xs);
