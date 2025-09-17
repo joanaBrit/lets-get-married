@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { Card, Alert, CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import i18n from "./i18n";
 import { TransportInfo } from "./components/BusInfo";
 import { LiveAnnouncement } from "./components/LiveAnnouncement";
 import { UserBadges } from "./components/UserBadges";
@@ -43,6 +44,10 @@ export function GuestArea() {
 
         const data = await response.json();
         setUserData(data);
+
+        // Set language based on user data, fallback to 'en'
+        const userLang = data.lang || "en";
+        i18n.changeLanguage(userLang);
       } catch (err) {
         setError(
           err instanceof Error

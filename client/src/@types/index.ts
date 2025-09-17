@@ -10,4 +10,5 @@ export interface UserData {
   vegetarian?: string;
   vegan?: string;
   foodAllergies?: boolean;
+  lang?: string;
 }
