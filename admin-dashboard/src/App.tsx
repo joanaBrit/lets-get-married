@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LuUsers, LuUtensils, LuLeaf, LuTriangleAlert } from 'react-icons/lu';
-import { type RsvpData } from './utils';
 import { StatCard } from './components/StatCard';
 import { ErrorDisplay } from './components/ErrorDisplay';
 import { LoginOverlay } from './components/LoginOverlay';
 import { GuestTable } from './components/GuestTable';
+import { GuestSearch } from './components/GuestSearch';
+import { BusTransportation } from './components/BusTransportation';
+import { StoryStageControl } from './components/StoryStageControl';
 
 function App() {
   const [data, setData] = useState<any[] | null>(null);
   const [error, setError] = useState<boolean>(false);
   const [showLogin, setShowLogin] = useState(!localStorage.getItem('auth'));
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const fetchData = async () => {
     try {
@@ -83,6 +86,16 @@ function App() {
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">RSVP Dashboard</h1>
+
+        <GuestSearch 
+          guests={data} 
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+        />
+
+        <BusTransportation guests={data} />
+
+        <StoryStageControl />
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
