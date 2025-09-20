@@ -123,7 +123,7 @@ export function GuestArea() {
 
           <TransportInfo isOnBus={!!userData.bus} />
           <Schedule />
-          <LiveAnnouncement />
+          <LiveAnnouncement pk={userData.pk} />
           <MediaUpload
             userId={userData.id}
             maxFiles={20}

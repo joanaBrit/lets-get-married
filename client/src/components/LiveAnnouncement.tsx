@@ -1,9 +1,46 @@
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { ExpandMore as ExpandIcon } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
-export function MysteryGame() {
+interface MysteryGameProps {
+  pk?: string;
+}
+
+export function MysteryGame({ pk }: MysteryGameProps) {
   const { t } = useTranslation();
+  const [storyData, setStoryData] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!pk) {
+      return;
+    }
+
+    const fetchStoryData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_RSVP_ENDPOINT}/story?pk=${pk}`
+        );
+
+        if (!response.ok) {
+          // If request fails, keep showing mystery game
+          return;
+        }
+
+        const data = await response.json();
+        
+        // Check if data.value exists and is a string
+        if (data?.value && typeof data.value === 'string') {
+          setStoryData(data.value);
+        }
+      } catch (error) {
+        // If there's an error, keep showing mystery game
+        console.warn('Failed to fetch story data:', error);
+      }
+    };
+
+    fetchStoryData();
+  }, [pk]);
 
   return (
     <Accordion defaultExpanded className="accordion-card mystery-game">
@@ -19,13 +56,22 @@ export function MysteryGame() {
         </div>
       </AccordionSummary>
       <AccordionDetails>
-        <p className="description">{t("guestArea.mysteryGame.description")}</p>
+        {storyData ? (
+          <p className="description story-content">
+            {storyData}
+          </p>
+        ) : (
+          <p className="description">{t("guestArea.mysteryGame.description")}</p>
+        )}
       </AccordionDetails>
     </Accordion>
   );
 }
 
-// Keep the old export for backward compatibility
-export function LiveAnnouncement() {
-  return <MysteryGame />;
+interface LiveAnnouncementProps {
+  pk?: string;
+}
+
+export function LiveAnnouncement({ pk }: LiveAnnouncementProps) {
+  return <MysteryGame pk={pk} />;
 }

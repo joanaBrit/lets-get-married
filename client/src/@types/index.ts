@@ -4,6 +4,7 @@ export interface UserData {
   id: string;
   firstName: string;
   lastName: string;
+  pk: string;
   status: "attending" | "not_attending";
   bus?: boolean;
   requests?: string;
