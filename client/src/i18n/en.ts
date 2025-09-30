@@ -175,15 +175,21 @@ export const en = {
   mediaUpload: {
     title: "📸 Share Your Photos & Videos",
     description:
-      "Upload your favorite photos and videos from the wedding to share with everyone!",
+      "Share your photos and videos from our wedding day with us, or with everyone at the wedding!",
     openSoon:
       "Coming soon! You'll be able to share your photos and videos from the wedding day with us here.",
     dragAndDrop: "Drag and drop your files here",
     selectFiles: "Select Files",
-    supportedFormats:
-      "Photos (JPG, PNG, GIF, WebP) and Videos (MP4, MOV, AVI, MKV, WebM)",
+    selectMoreFiles: "Select More Files",
     maxSize: "Max {{maxSize}}MB per file",
     uploadedFiles: "Uploaded Files",
+    selectedFiles: "Selected Files",
+    uploadAll: "Upload All",
+    shareWithEveryone: "Share with everyone",
+    sharePrivate: "Share with David & Joana only",
+    uploading: "Uploading...",
+    uploadingProgress: "Uploading {{completed}}/{{total}}",
+    uploadSuccess: "Uploaded successfully",
     completed: "Completed",
     error: "Error",
     errors: {

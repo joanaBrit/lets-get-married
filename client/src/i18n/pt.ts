@@ -182,15 +182,21 @@ export const pt = {
   mediaUpload: {
     title: "📸 Partilhe as Suas Fotografias e Vídeos",
     description:
-      "Carregue as suas fotografias e vídeos favoritos do casamento para partilhar com todos!",
+      "Partilhem as vossas fotografias e vídeos do nosso dia de casamento connosco, ou com todos os convidados!",
     openSoon:
       "Em breve! Poderá partilhar as suas fotografias e vídeos do dia do casamento connosco aqui.",
     dragAndDrop: "Arraste e largue os seus ficheiros aqui",
     selectFiles: "Seleccionar Ficheiros",
-    supportedFormats:
-      "Fotografias (JPG, PNG, GIF, WebP) e Vídeos (MP4, MOV, AVI, MKV, WebM)",
+    selectMoreFiles: "Seleccionar Mais Ficheiros",
     maxSize: "Máx {{maxSize}}MB por ficheiro",
     uploadedFiles: "Ficheiros Carregados",
+    selectedFiles: "Ficheiros Seleccionados",
+    uploadAll: "Carregar Todos",
+    shareWithEveryone: "Partilhar com todos",
+    sharePrivate: "Partilhar apenas com David & Joana",
+    uploading: "A carregar...",
+    uploadingProgress: "A carregar {{completed}}/{{total}}",
+    uploadSuccess: "Carregado com sucesso",
     completed: "Concluído",
     error: "Erro",
     errors: {

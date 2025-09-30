@@ -252,39 +252,6 @@
       }
     }
 
-    .upload-area {
-      border: 2px dashed #e0e0e0;
-      border-radius: 8px;
-      padding: 2rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background-color: #fafafa;
-
-      &:hover,
-      &.dragging {
-        border-color: #1976d2;
-        background-color: #f3f8ff;
-      }
-
-      .upload-icon {
-        font-size: 3rem;
-        color: #bdbdbd;
-        margin-bottom: 1rem;
-      }
-
-      .upload-text {
-        font-size: 1rem;
-        color: #424242;
-        margin: 0 0 1rem 0;
-      }
-
-      .upload-hint {
-        font-size: 0.75rem;
-        color: rgba(0, 0, 0, 0.6);
-        margin: 1rem 0 0 0;
-      }
-    }
 
     .file-list {
       margin-top: 1.5rem;

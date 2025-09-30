@@ -1,0 +1,339 @@
+.media-upload {
+  .media-upload-content {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  // Upload area styles (moved from GuestArea.scss)
+  .upload-area {
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &.dragging {
+      border-color: #1976d2;
+      background-color: #f3f8ff;
+    }
+
+    .upload-icon {
+      font-size: 3rem;
+      color: #bdbdbd;
+      margin-bottom: 1rem;
+    }
+
+    .upload-text {
+      font-size: 1rem;
+      color: #424242;
+      margin: 0 0 1rem 0;
+    }
+
+    .upload-hint {
+      font-size: 0.75rem;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 1rem 0 0 0;
+    }
+
+    // Mobile layout adjustments
+    @media (max-width: 768px) {
+      padding: 1.5rem 1rem;
+      
+      .upload-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .upload-text {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .upload-hint {
+        font-size: 0.7rem;
+        margin-top: 0.75rem;
+      }
+
+      .MuiButton-root {
+        margin: 0;
+      }
+    }
+
+    // Small mobile adjustments
+    @media (max-width: 480px) {
+      padding: 1rem;
+      
+      .upload-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .file-thumbnails {
+
+    .thumbnails-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      gap: 1rem;
+
+      .file-list-title {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      // Mobile layout adjustments for header
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+
+        .file-list-title {
+          text-align: center;
+        }
+      }
+
+      .upload-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        .MuiButton-root {
+          white-space: nowrap;
+          min-width: 140px;
+        }
+
+        // Mobile layout - stack buttons vertically
+        @media (max-width: 768px) {
+          flex-direction: column;
+          width: 100%;
+          align-self: stretch;
+          
+          .MuiButton-root {
+            width: 100%;
+            min-width: unset;
+          }
+        }
+
+        // Small mobile - ensure buttons don't get too cramped
+        @media (max-width: 480px) {
+          gap: 0.75rem;
+        }
+      }
+    }
+
+    .thumbnails-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      max-height: 30vh;
+      overflow-y: auto;
+    }
+
+    .thumbnail-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .thumbnail-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid #e0e0e0;
+        background-color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .thumbnail-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .thumbnail-placeholder {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          color: #9e9e9e;
+
+          .MuiSvgIcon-root {
+            font-size: 3rem;
+          }
+        }
+
+        .thumbnail-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          transition: opacity 0.2s ease;
+
+          .upload-progress {
+            width: 80%;
+            .MuiLinearProgress-root {
+              background-color: rgba(255, 255, 255, 0.3);
+              .MuiLinearProgress-bar {
+                background-color: #fff;
+              }
+            }
+          }
+
+          .upload-success {
+            .success-icon {
+              color: #4caf50;
+              font-size: 2rem;
+            }
+          }
+
+          .upload-error {
+            .MuiChip-root {
+              background-color: #f44336;
+              color: white;
+            }
+          }
+        }
+
+        .remove-button {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          background-color: rgba(0, 0, 0, 0.6);
+          color: white;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+          }
+
+          .MuiSvgIcon-root {
+            font-size: 1.2rem;
+          }
+        }
+
+        &:hover {
+          .thumbnail-overlay,
+          .remove-button {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.uploading .thumbnail-container {
+        border-color: #2196f3;
+        
+        .thumbnail-overlay {
+          opacity: 1;
+        }
+      }
+
+      &.completed .thumbnail-container {
+        border-color: #4caf50;
+        
+        .thumbnail-overlay {
+          opacity: 1;
+        }
+      }
+
+      &.error .thumbnail-container {
+        border-color: #f44336;
+        
+        .thumbnail-overlay {
+          opacity: 1;
+        }
+      }
+
+      .thumbnail-info {
+        margin-top: 0.5rem;
+        text-align: center;
+        width: 150px;
+
+        .file-name {
+          display: block;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: #333;
+          word-break: break-word;
+          line-height: 1.2;
+        }
+
+        .file-size {
+          display: block;
+          font-size: 0.7rem;
+          color: #666;
+          margin-top: 0.2rem;
+        }
+      }
+    }
+  }
+
+  // Hide drag and drop text on mobile
+  .desktop-only {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  // Upload progress container
+  .upload-progress-container {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .progress-info {
+      width: 100%;
+      max-width: 400px;
+
+      .progress-text {
+        font-size: 1rem;
+        color: #424242;
+        margin: 0 0 1rem 0;
+        font-weight: 500;
+      }
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      padding: 1.5rem 1rem;
+
+      .progress-info {
+        .progress-text {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+  }
+}

@@ -18,6 +18,7 @@ export function GuestArea() {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const eventStatus: "complete" | undefined = "complete";
 
   const userId = searchParams.get("id");
 
@@ -121,14 +122,19 @@ export function GuestArea() {
             )}
           </div>
 
-          <TransportInfo isOnBus={!!userData.bus} />
-          <Schedule />
-          <LiveAnnouncement pk={userData.pk} />
+          {eventStatus !== "complete" && (
+            <>
+              <TransportInfo isOnBus={!!userData.bus} />
+              <Schedule />
+              <LiveAnnouncement pk={userData.pk} />
+            </>
+          )}
+
           <MediaUpload
-            userId={userData.id}
+            userPk={userData.pk}
             maxFiles={20}
-            maxFileSize={100}
-            uploadEnabled={false}
+            maxFileSize={500}
+            uploadEnabled={eventStatus === "complete"}
           />
           <GiftRegistry currencies={["EUR", "GBP"]} />
         </>
