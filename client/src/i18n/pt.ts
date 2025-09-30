@@ -182,7 +182,7 @@ export const pt = {
   mediaUpload: {
     title: "📸 Partilhe as Suas Fotografias e Vídeos",
     description:
-      "Partilhem as vossas fotografias e vídeos do nosso dia de casamento connosco, ou com todos os convidados!",
+      "Partilhem as vossas fotografias e vídeos do dia do casamento connosco, ou com todos os convidados! <br><br> Passado algum tempo, enviaremos um email a todos os convidados com um link para descarregar as fotografias que foram partilhadas com todos.",
     openSoon:
       "Em breve! Poderá partilhar as suas fotografias e vídeos do dia do casamento connosco aqui.",
     dragAndDrop: "Arraste e largue os seus ficheiros aqui",

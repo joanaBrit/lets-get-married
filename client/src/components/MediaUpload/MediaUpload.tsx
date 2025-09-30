@@ -6,7 +6,7 @@ import {
   Alert,
 } from "@mui/material";
 import { ExpandMore as ExpandIcon } from "@mui/icons-material";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { UploadArea } from "./UploadArea";
 import { UploadProgress } from "./UploadProgress";
 import { ThumbnailGrid } from "./ThumbnailGrid";
@@ -274,9 +274,11 @@ export function MediaUpload({
       <AccordionDetails>
         <div className="media-upload-content">
           <p className="description">
-            {uploadEnabled
-              ? t("mediaUpload.description")
-              : t("mediaUpload.openSoon")}
+            {uploadEnabled ? (
+              <Trans i18nKey="mediaUpload.description" />
+            ) : (
+              <Trans i18nKey="mediaUpload.openSoon" />
+            )}
           </p>
 
           {uploadEnabled && (

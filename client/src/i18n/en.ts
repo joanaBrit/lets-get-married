@@ -175,7 +175,7 @@ export const en = {
   mediaUpload: {
     title: "📸 Share Your Photos & Videos",
     description:
-      "Share your photos and videos from our wedding day with us, or with everyone at the wedding!",
+      "Share your photos and videos from our wedding day with us, or with everyone at the wedding! <br><br>After some time, we’ll email all guests a link to download the photos that were shared with everyone.",
     openSoon:
       "Coming soon! You'll be able to share your photos and videos from the wedding day with us here.",
     dragAndDrop: "Drag and drop your files here",
